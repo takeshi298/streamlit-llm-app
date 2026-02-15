@@ -8,6 +8,9 @@ from langchain_core.prompts import ChatPromptTemplate
 # 1) .env を読み込み（OPENAI_API_KEY を環境変数として設定）
 load_dotenv()
 
+api_key = os.getenv("OPENAI_API_KEY")
+print(api_key)
+
 
 def ask_llm(user_text: str, expert_type: str) -> str:
     """
@@ -105,3 +108,4 @@ if submit:
             st.write(answer)
         except Exception as e:
             st.error(f"エラーが発生しました: {e}")
+
