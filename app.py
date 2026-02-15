@@ -24,7 +24,7 @@ def ask_llm(user_text: str, expert_type: str) -> str:
         )
 
     # 2) 選択値に応じてシステムメッセージを切り替える
-    #    ※専門家タイプは自由に設計（例：A=事業開発、B=Python家庭教師）
+    #    ※専門家は自由に設計(A=事業開発、B=Python家庭教師）
     if expert_type == "事業開発コンサル（BizDev）":
         system_message = (
             "あなたは優秀な事業開発コンサルタントです。"
@@ -40,12 +40,12 @@ def ask_llm(user_text: str, expert_type: str) -> str:
 
     # 3) LLM（LangChain）を準備
     llm = ChatOpenAI(
-        model="gpt-3.5-turbo",  # コース指定に合わせる
+        model="gpt-3.5-turbo", 
         temperature=0.3,
         api_key=api_key,
     )
 
-    # 4) プロンプト（System + Human）を構成（Lesson8の基本形）
+    # 4) プロンプト（System + Human）を構成
     prompt = ChatPromptTemplate.from_messages(
         [
             ("system", system_message),
